@@ -11,13 +11,14 @@ public class GestionBancaria {
         int opcion;
         boolean bandera = false;
         ClienteDao dao = new ClienteDao();
+        CuentaDao dao1 = new CuentaDao();
         System.out.println("-------------BIENVENIDO A SU BANCO------------");
         do {            
             try {
                 
-            System.out.println("1.Registrar cliente."
-                    + "\n2.Mostrar todos los clientes registrados."
-                    + "\n3.Crear cuenta de ahorro."
+            System.out.println("1. Registrar cliente."
+                    + "\n2. Mostrar todos los clientes registrados."
+                    + "\n3. Crear cuenta de ahorro."
                     + "\n4. Crear cuenta corriente."
                     + "\n5. Consultar cuenta."
                     + "\n6. Depositar."
@@ -49,8 +50,20 @@ public class GestionBancaria {
                     case 2:
                         dao.mostrarClientes();
                         break;
-                    case 3:
                         
+                    case 3:
+                        System.out.print("Digite la cedula del titular de la cuenta: ");
+                        int cedula1 = entrada.nextInt();
+                        entrada.nextLine();
+                        System.out.print("Digite el tipo de cuenta: ");
+                        String tipoCuenta = entrada.nextLine();
+                        System.out.print("Digite el saldo de la cuenta: ");
+                        double saldo=entrada.nextDouble();
+                        entrada.nextLine();
+                        System.out.print("Digite la sucursal: ");
+                        String sucursal= entrada.nextLine();
+                        Cuenta c2 = new CuentaAhorros(tipoCuenta, saldo, sucursal, cedula1);
+                        dao1.crearAhorros(c2);
                         break;
                         
                     case 10:
