@@ -52,5 +52,30 @@ public class ClienteDao {
         
     }
     
+    public void mostrarClientes(){
+        String sql = "Select * from clientes";
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+            
+            try(PreparedStatement stmt = c.prepareStatement(sql);ResultSet r = stmt.executeQuery()){
+                while(r.next()){
+                    System.out.print(r.getString("nombre"));
+                    System.out.print(" | "+r.getString("apellido"));
+                    System.out.print(" | "+r.getString("correo"));
+                    System.out.print(" | "+r.getString("cedula"));
+                    System.out.println("");
+                }
+                
+                
+                
+            } catch (Exception e) {
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     
 }

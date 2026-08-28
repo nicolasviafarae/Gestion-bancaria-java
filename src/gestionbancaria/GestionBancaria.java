@@ -47,7 +47,7 @@ public class GestionBancaria {
                         dao.crearCliente(c1);
                         break;
                     case 2:
-                        
+                        dao.mostrarClientes();
                         break;
                     case 3:
                         
