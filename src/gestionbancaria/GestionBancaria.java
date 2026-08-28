@@ -12,6 +12,8 @@ public class GestionBancaria {
         boolean bandera = false;
         ClienteDao dao = new ClienteDao();
         CuentaDao dao1 = new CuentaDao();
+        MovimientoDao dao2 = new MovimientoDao();
+        
         System.out.println("-------------BIENVENIDO A SU BANCO------------");
         do {            
             try {
@@ -86,6 +88,14 @@ public class GestionBancaria {
                         dao1.mostrarCuentas(consultar);
                         break;
                         
+                    case 6:
+                        entrada.nextLine();
+                        System.out.print("Digite la cuenta ID a la cual se le va a realizar el deposito: ");
+                        int cuentaID = entrada.nextInt();
+                        System.out.print("Digite el monto a tansferir: ");
+                        double monto = entrada.nextDouble();
+                        dao2.depositar(cuentaID,monto);
+                        break;
                     case 10:
                         bandera=true;
                         break;
