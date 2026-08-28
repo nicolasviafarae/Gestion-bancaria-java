@@ -104,6 +104,22 @@ public class GestionBancaria {
                         double retiro = entrada.nextDouble();
                         dao2.retirar(cuentaID2,retiro);
                         break;
+                    case 8:
+                        entrada.nextLine();
+                        System.out.print("Digite el ID de la cuenta origen: ");
+                        int cuentaID3=entrada.nextInt();
+                        System.out.print("Digirte el ID de la cuenta destino: ");
+                        int cuentaID4=entrada.nextInt();
+                        System.out.print("Digite cuanto desea transferir: ");
+                        double transferir=entrada.nextDouble();
+                        dao2.transferir(cuentaID3,cuentaID4,transferir);
+                        break;
+                    case 9:
+                        entrada.nextLine();
+                        System.out.print("Digite la cuenta ID para ver el historial: ");
+                        int cuentaID5=entrada.nextInt();
+                        dao2.mostrarHistorial(cuentaID5);
+                        break;
                     case 10:
                         bandera=true;
                         break;
