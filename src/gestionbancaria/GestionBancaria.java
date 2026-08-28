@@ -66,6 +66,21 @@ public class GestionBancaria {
                         dao1.crearAhorros(c2);
                         break;
                         
+                    case 4:
+                        System.out.print("Digite la cedula del titular de la cuenta: ");
+                        int cedula2 = entrada.nextInt();
+                        entrada.nextLine();
+                        System.out.print("Digite el tipo de la cuenta: ");
+                        String tipoCuenta2 = entrada.nextLine();
+                        System.out.print("Digite el saldo de la cuenta: ");
+                        double saldo2 = entrada.nextDouble();
+                        entrada.nextLine();
+                        System.out.print("Digite la sucursal: ");
+                        String sucursal2= entrada.nextLine();
+                        Cuenta c3 = new CuentaCorriente(tipoCuenta2,saldo2,sucursal2,cedula2);
+                        dao1.crearCorriente(c3);
+                        break;
+                        
                     case 10:
                         bandera=true;
                         break;

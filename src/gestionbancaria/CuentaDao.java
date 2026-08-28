@@ -42,4 +42,38 @@ public class CuentaDao {
         }
     }
     
+    public void crearCorriente(Cuenta c3){
+        String sql = "select cliente_ID from clientes where cedula=?";
+        String sql1="insert into cuentas (cliente_ID,tipo_cuenta,Saldo,Sucursal)values(?,?,?,?)";
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+            try(PreparedStatement stmt = c.prepareStatement(sql)) {
+                c.setAutoCommit(false);
+                stmt.setInt(1, c3.getCedulausuario());
+                stmt.executeQuery();
+                ResultSet r = stmt.executeQuery();
+                if(r.next()){
+                int cedulaUsuario = r.getInt("cliente_ID");
+                    PreparedStatement stmt1 = c.prepareStatement(sql1);
+                    stmt1.setInt(1, cedulaUsuario);
+                    stmt1.setString(2, c3.getTipo_cuenta());
+                    stmt1.setDouble(3, c3.getSaldo());
+                    stmt1.setString(4, c3.getSucursal());
+                    stmt1.executeUpdate();
+                    c.commit();
+                    System.out.println("Cuenta registrada");
+                }else{
+                    System.out.println("No se encontro ningun usuario con esa cedula");
+                }
+            } catch (Exception e) {
+                c.rollback();
+                System.out.println(e.getMessage());
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
 }
