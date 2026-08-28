@@ -10,6 +10,7 @@ public class GestionBancaria {
         Scanner entrada = new Scanner(System.in) ;
         int opcion;
         boolean bandera = false;
+        ClienteDao dao = new ClienteDao();
         System.out.println("-------------BIENVENIDO A SU BANCO------------");
         do {            
             try {
@@ -28,12 +29,22 @@ public class GestionBancaria {
                 System.out.print("Por favor digite una opcion: ");
                 opcion = entrada.nextInt();
                 if(opcion <1 || opcion>9){
-                    //System.out.println("Por favor numeros del 1-9");
-                    JOptionPane.showInputDialog(null, "Por favor numeros del 1-9");
+                    System.out.println("Por favor numeros del 1-9");
                 }
                 switch (opcion) {
                     case 1:
-                        
+                        entrada.nextLine();
+                        System.out.print("Digite el nombre del cliente: ");
+                        String nombre = entrada.nextLine();
+                        System.out.print("Digite el apellido del cliente: ");
+                        String Apellido = entrada.nextLine();
+                        System.out.print("Digite la cedula: ");
+                        int cedula = entrada.nextInt();
+                        entrada.nextLine();
+                        System.out.print("Digite el correo: ");
+                        String correo = entrada.nextLine();
+                        Cliente c1 = new Cliente(cedula,nombre,Apellido,correo);
+                        dao.crearCliente(c1);
                         break;
                     case 2:
                         
@@ -46,14 +57,6 @@ public class GestionBancaria {
                         bandera=true;
                         break;
                 }
-                    
-
-
-
-
-
-
-
             
             } catch (Exception e) {
                 System.out.println("Opcion invalida. Digite nuevamente");
