@@ -25,7 +25,7 @@ public class GestionBancaria {
                     + "\n7. Retirar."
                     + "\n8. Transferir."
                     + "\n9. Consultar historial"
-                    + "\n10. Salir");
+                    + "\nq. Salir");
             
                 System.out.print("Por favor digite una opcion: ");
                 opcion = entrada.nextInt();
@@ -79,6 +79,11 @@ public class GestionBancaria {
                         String sucursal2= entrada.nextLine();
                         Cuenta c3 = new CuentaCorriente(tipoCuenta2,saldo2,sucursal2,cedula2);
                         dao1.crearCorriente(c3);
+                        break;
+                    case 5: 
+                        System.out.print("Digite la cedula del titular para ver la cuenta: ");
+                        int consultar = entrada.nextInt();
+                        dao1.mostrarCuentas(consultar);
                         break;
                         
                     case 10:

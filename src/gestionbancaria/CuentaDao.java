@@ -76,4 +76,35 @@ public class CuentaDao {
         }
     }
     
+    public void mostrarCuentas(int consultar){
+        String sql="select cliente_ID from clientes where cedula=?";
+        String sql1 = "select * from cuentas where cliente_ID=?";
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+            try(PreparedStatement stmt = c.prepareStatement(sql)) {
+                stmt.setInt(1, consultar);
+                stmt.executeQuery();
+                ResultSet r = stmt.executeQuery();
+                r.next();
+                int Clienteid = r.getInt("cliente_ID");
+                PreparedStatement stmt1 = c.prepareStatement(sql1);
+                stmt1.setInt(1, Clienteid);
+                stmt1.executeQuery();
+                ResultSet r2 = stmt1.executeQuery();
+                while(r2.next()){
+                    System.out.print(r2.getInt("cliente_ID"));
+                    System.out.print(" | "+r2.getString("tipo_Cuenta"));
+                    System.out.print(" | "+r2.getDouble("saldo"));
+                    System.out.print(" | "+r2.getString("sucursal"));
+                    System.out.println("");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
