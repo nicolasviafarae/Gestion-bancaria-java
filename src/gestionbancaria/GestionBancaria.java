@@ -19,16 +19,16 @@ public class GestionBancaria {
                     + "\n2.Mostrar todos los clientes registrados."
                     + "\n3.Crear cuenta de ahorro."
                     + "\n4. Crear cuenta corriente."
-                    + "'n4. Consultar cuenta."
-                    + "\n5. Depositar."
-                    + "\n6. Retirar."
-                    + "\n7. Transferir."
-                    + "\n8. Consultar historial"
-                    + "\n9. Salir");
+                    + "\n5. Consultar cuenta."
+                    + "\n6. Depositar."
+                    + "\n7. Retirar."
+                    + "\n8. Transferir."
+                    + "\n9. Consultar historial"
+                    + "\n10. Salir");
             
                 System.out.print("Por favor digite una opcion: ");
                 opcion = entrada.nextInt();
-                if(opcion <1 || opcion>9){
+                if(opcion <1 || opcion>10){
                     System.out.println("Por favor numeros del 1-9");
                 }
                 switch (opcion) {
@@ -53,7 +53,7 @@ public class GestionBancaria {
                         
                         break;
                         
-                    case 9:
+                    case 10:
                         bandera=true;
                         break;
                 }
