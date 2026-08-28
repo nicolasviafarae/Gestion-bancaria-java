@@ -96,6 +96,14 @@ public class GestionBancaria {
                         double monto = entrada.nextDouble();
                         dao2.depositar(cuentaID,monto);
                         break;
+                    case 7:
+                        entrada.nextLine();
+                        System.out.print("Digite el ID de la cuenta a la cual se le va a realizar el retiro: ");
+                        int cuentaID2 = entrada.nextInt();
+                        System.out.print("Digite cuanto quiere retirar: ");
+                        double retiro = entrada.nextDouble();
+                        dao2.retirar(cuentaID2,retiro);
+                        break;
                     case 10:
                         bandera=true;
                         break;
