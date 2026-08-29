@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 public class ClienteDao {
     
     //ofuzcar encriptado
@@ -20,7 +21,7 @@ public class ClienteDao {
                 ResultSet r = stmt1.executeQuery();
          
                 if(r.next()){
-                    System.out.println("El cliente con esa cedula ya esta registrado");
+                  JOptionPane.showMessageDialog(null,"El cliente con esa cedula ya esta registrado");
                 }else{
                 stmt.setInt(1, c1.getCedula());
                 stmt.setString(2, c1.getNombre());

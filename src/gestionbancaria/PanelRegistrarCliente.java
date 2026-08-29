@@ -9,11 +9,12 @@ package gestionbancaria;
  * @author user
  */
 public class PanelRegistrarCliente extends javax.swing.JPanel {
-
+    private VentanaPrincipal ventana;
     /**
      * Creates new form PanelRegistrarCliente
      */
-    public PanelRegistrarCliente() {
+    public PanelRegistrarCliente(VentanaPrincipal ventana) {
+        this.ventana=ventana;
         initComponents();
     }
 
@@ -31,11 +32,11 @@ public class PanelRegistrarCliente extends javax.swing.JPanel {
         txtNombre = new javax.swing.JTextField();
         lblNombre1 = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JButton();
         lblCorreo = new javax.swing.JLabel();
 
@@ -57,20 +58,21 @@ public class PanelRegistrarCliente extends javax.swing.JPanel {
         lblApellido.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         lblApellido.setText("Apellido:");
         add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 90, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 230, -1));
+        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 230, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         jLabel1.setText("Cédula: ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 230, -1));
+        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 230, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         jLabel2.setText("Correo: ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 80, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 230, -1));
+        add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 230, -1));
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         btnRegresar.setText("Guardar y Regresar ");
+        btnRegresar.addActionListener(this::btnRegresarActionPerformed);
         add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         lblCorreo.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
@@ -78,19 +80,35 @@ public class PanelRegistrarCliente extends javax.swing.JPanel {
         add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 450));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        int cedula = Integer.parseInt(txtCedula.getText());
+        String correo = txtCorreo.getText();
+        Cliente cliente = new Cliente(cedula,nombre,apellido,correo);
+        ClienteDao dao1 = new ClienteDao();
+        dao1.crearCliente(cliente);
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtCedula.setText("");
+        txtCorreo.setText("");
+        ventana.layout.show(ventana.panelCards, "panelPrincipal");
+        
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblTituloRegis;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

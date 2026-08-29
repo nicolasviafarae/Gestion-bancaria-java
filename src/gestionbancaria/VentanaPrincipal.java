@@ -14,16 +14,19 @@ import javax.swing.JPanel;
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
-    PanelRegistrarCliente panelcliente = new PanelRegistrarCliente();
+        CardLayout layout = new CardLayout();
+        JPanel panelCards = new JPanel(layout);
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
-        CardLayout layout = new CardLayout();
-        JPanel panelCards = new JPanel(layout);
+    PanelRegistrarCliente panelcliente = new PanelRegistrarCliente(this);
         panelCards.add(pnlPrincipal,"panelPrincipal");
-        panelCards.add(panelcliente,"PanelRegistrarUsuario");
+        panelCards.add(panelcliente,"PanelRegistrarCliente");
+        add(panelCards);
+        panelCards.setBounds(0, 0, getWidth(), getHeight());
+        layout.show(panelCards, "panelPrincipal");
     }
 
     /**
@@ -72,15 +75,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 190, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
-        // TODO add your handling code here:
+        layout.show(panelCards, "PanelRegistrarCliente");
     }//GEN-LAST:event_btnclienteActionPerformed
 
     /**
