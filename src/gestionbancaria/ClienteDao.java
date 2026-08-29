@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 public class ClienteDao {
     
-    
+    //ofuzcar encriptado
     public void crearCliente(Cliente c1){
         String sql="insert into clientes(cedula,nombre,apellido,correo)values(?,?,?,?)";
         String sql1 = "Select cedula from clientes where cedula=?";

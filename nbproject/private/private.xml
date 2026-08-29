@@ -5,6 +5,12 @@
         <group>
             <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/GestionBancaria.java</file>
             <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/Cliente.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/ClienteDao.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/Cuenta.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/CuentaAhorros.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/CuentaCorriente.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/CuentaDao.java</file>
+            <file>file:/C:/Users/user/Documents/Java-Proyectos/GestionBancaria/GestionBancaria/src/gestionbancaria/MovimientoDao.java</file>
         </group>
     </open-files>
 </project-private>

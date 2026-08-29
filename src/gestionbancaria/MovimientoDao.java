@@ -87,6 +87,7 @@ public class MovimientoDao {
         String sql1= "select saldo from cuentas where cuenta_ID=?";
         String sql2= "update cuentas set saldo=? where cuenta_ID=?";
         String sql3= "update cuentas set saldo=? where cuenta_ID=?";
+        String SQL="insert into transferencias (tipo_transacción)values(?)";
         String sql4= "select transferencia_ID from transferencias ";
         String Retiro = "Retiro";
         String Deposito= "Deposito";
@@ -97,13 +98,13 @@ public class MovimientoDao {
                 c.setAutoCommit(false);
                 stmt.setInt(1, cuentaID3);
                 ResultSet r = stmt.executeQuery();
-                stmt.executeQuery();
+                //stmt.executeQuery();
                 r.next();
                 double saldo1 = r.getDouble("saldo")-transferir;
                 PreparedStatement stmt1 = c.prepareStatement(sql1);
                 stmt1.setInt(1, cuentaID4);
                 ResultSet r2 = stmt1.executeQuery();
-                stmt1.executeQuery();
+                //stmt1.executeQuery();
                 r2.next();
                 double saldo2 = r2.getDouble("saldo");
                 PreparedStatement stmt2 = c.prepareStatement(sql2);
@@ -114,6 +115,9 @@ public class MovimientoDao {
                 stmt3.setDouble(1, saldo2);
                 stmt3.setInt(2, cuentaID4);
                 stmt3.executeUpdate();
+                PreparedStatement stmts = c.prepareStatement(SQL);
+                stmts.setString(1, Deposito);
+                stmts.executeUpdate();
                 PreparedStatement stmt4 = c.prepareStatement(sql4);
                 ResultSet r3 = stmt4.executeQuery();
                 r3.next();
@@ -128,7 +132,7 @@ public class MovimientoDao {
                 stmt6.setInt(1, cuentaID4);
                 stmt6.setInt(2, transID);
                 stmt6.setString(3, Deposito);
-                stmt6.setDouble(transID, transferir);
+                stmt6.setDouble(4, transferir);
                 stmt6.executeUpdate();
                 c.commit();
                 System.out.println("Transferencia realizada");
