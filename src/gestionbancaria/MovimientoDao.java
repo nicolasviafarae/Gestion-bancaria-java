@@ -13,7 +13,7 @@ public class MovimientoDao {
         String sql1="update cuentas set saldo=? where cuenta_ID=?";
         String sql2="insert into movimientos(cuenta_ID,tipo_movimiento,monto)values(?,?,?)";
         String deposito = "Deposito";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "MiContraseña")) {
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 c.setAutoCommit(false);
                 stmt.setInt(1, cuentaID);
@@ -52,7 +52,7 @@ public class MovimientoDao {
         String sql1 = "update cuentas set saldo=? where cuenta_ID=?";
         String sql2= "insert into movimientos (cuenta_ID,tipo_movimiento,monto) values(?,?,?)";
         String Retiro = "Retiro";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "MiCOnstraseña")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 c.setAutoCommit(false);
@@ -94,7 +94,7 @@ public class MovimientoDao {
         String Deposito= "Deposito";
         String sql5= "insert into movimientos (cuenta_ID,transferencia_ID,tipo_movimiento,Monto)values(?,?,?,?)";
         String sql6= "insert into movimientos (cuenta_ID,transferencia_ID,tipo_movimiento,Monto)values(?,?,?,?)";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "MiCOntraseña")) {
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 c.setAutoCommit(false);
                 stmt.setInt(1, cuentaID3);
@@ -152,7 +152,7 @@ public class MovimientoDao {
     
     public void mostrarHistorial(int cuentaID5){
         String sql= "select * from movimientos where cuenta_ID=?";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemabancario", "root", "MiCOnstraseña")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql)){
                 stmt.setInt(1, cuentaID5);

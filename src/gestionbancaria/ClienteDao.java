@@ -16,7 +16,7 @@ public class ClienteDao {
     public void crearCliente(Cliente c1){
         String sql="insert into clientes(cedula,nombre,apellido,correo)values(?,?,?,?)";
         String sql1 = "Select cedula from clientes where cedula=?";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023");) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "MiContraseña");) {
             
             
             try(PreparedStatement stmt = c.prepareStatement(sql);PreparedStatement stmt1 = c.prepareStatement(sql1)) {
@@ -60,7 +60,7 @@ public class ClienteDao {
     public List<Cliente> mostrarClientes(){
         ArrayList<Cliente> clientes = new ArrayList<>();
         String sql = "Select * from clientes";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Mi_COnstraseña")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql);ResultSet r = stmt.executeQuery()){
                 while(r.next()){

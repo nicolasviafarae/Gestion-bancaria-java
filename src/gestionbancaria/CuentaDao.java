@@ -13,7 +13,7 @@ public class CuentaDao {
     public void crearAhorros(Cuenta c2){
         String sql = "select Cliente_ID from clientes where cedula=?";
         String sql1= "insert into cuentas (Cliente_ID,tipo_cuenta,saldo,Sucursal)values(?,?,?,?)";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "MiCOntraseña")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 c.setAutoCommit(false);
@@ -48,7 +48,7 @@ public class CuentaDao {
     public void crearCorriente(Cuenta c3){
         String sql = "select cliente_ID from clientes where cedula=?";
         String sql1="insert into cuentas (cliente_ID,tipo_cuenta,Saldo,Sucursal)values(?,?,?,?)";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "MiContraseña")) {
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 c.setAutoCommit(false);
                 stmt.setInt(1, c3.getCedulausuario());
@@ -83,7 +83,7 @@ public class CuentaDao {
         ArrayList<Cuenta> cuentas = new ArrayList<>();
         String sql="select cliente_ID from clientes where cedula=?";
         String sql1 = "select * from cuentas where cliente_ID=?";
-        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
+        try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "MiContraseña")) {
             try(PreparedStatement stmt = c.prepareStatement(sql)) {
                 stmt.setInt(1, consultar);
                 stmt.executeQuery();
