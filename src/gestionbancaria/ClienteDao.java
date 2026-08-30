@@ -1,10 +1,14 @@
 
 package gestionbancaria;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.JOptionPane;
 public class ClienteDao {
     
@@ -53,19 +57,19 @@ public class ClienteDao {
         
     }
     
-    public String mostrarClientes(){
+    public List<Cliente> mostrarClientes(){
+        ArrayList<Cliente> clientes = new ArrayList<>();
         String sql = "Select * from clientes";
-        String texto = "";
         try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql);ResultSet r = stmt.executeQuery()){
                 while(r.next()){
-//                    System.out.print(r.getString("nombre"));
-//                    System.out.print(" | "+r.getString("apellido"));
-//                    System.out.print(" | "+r.getString("correo"));
-//                    System.out.print(" | "+r.getString("cedula"));
-//                    System.out.println("");
-                    
+                    String nombre=r.getString("nombre");
+                    String apellido= r.getString("apellido");
+                    String correo=r.getString("correo");
+                    int cedula=r.getInt("cedula");
+                    Cliente cliente = new Cliente(cedula,nombre,apellido,correo);
+                    clientes.add(cliente);
                 }
                 
                 
@@ -78,7 +82,7 @@ public class ClienteDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return "";
+        return clientes;
     }
     
     

@@ -50,16 +50,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnMostrarUsuarios = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btncliente.setBackground(new java.awt.Color(255, 0, 0));
+        btncliente.setBackground(new java.awt.Color(0, 0, 0));
         btncliente.setFont(new java.awt.Font("Cambria", 3, 18)); // NOI18N
         btncliente.setForeground(new java.awt.Color(255, 255, 255));
         btncliente.setText("Registrar usuario");
+        btncliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         btncliente.addActionListener(this::btnclienteActionPerformed);
         pnlPrincipal.add(btncliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 240, 60));
 
@@ -68,29 +70,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblTitulo.setText("MI APLICACIÓN BANCARIA");
         pnlPrincipal.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 720, 130));
 
-        btnMostrarUsuarios.setBackground(new java.awt.Color(255, 0, 0));
+        btnMostrarUsuarios.setBackground(new java.awt.Color(0, 0, 0));
         btnMostrarUsuarios.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         btnMostrarUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrarUsuarios.setText("Mostrar Usuarios");
+        btnMostrarUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         btnMostrarUsuarios.addActionListener(this::btnMostrarUsuariosActionPerformed);
         pnlPrincipal.add(btnMostrarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 240, 60));
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Crear cuenta de Ahorros");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         jButton1.addActionListener(this::jButton1ActionPerformed);
         pnlPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, 240, 60));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(242, 242, 242));
         jButton2.setText("Crear cuenta Corriente");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        pnlPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 340, 240, 60));
+        pnlPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 240, 60));
+
+        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(242, 242, 242));
+        jButton3.setText("Consultar Cuenta");
+        pnlPrincipal.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 240, 60));
 
         lblFondo.setFont(new java.awt.Font("Broadway", 3, 14)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionbancaria/bancofuturo.jpg"))); // NOI18N
+        lblFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,7 +119,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,6 +171,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btncliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlPrincipal;

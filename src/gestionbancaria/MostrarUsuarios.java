@@ -4,6 +4,8 @@
  */
 package gestionbancaria;
 
+import java.util.List;
+
 /**
  *
  * @author user
@@ -30,7 +32,7 @@ public class MostrarUsuarios extends javax.swing.JPanel {
         pnlMostrarUsuarios = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        atxtUsuarios = new javax.swing.JTextArea();
+        txtUsuarios = new javax.swing.JTextArea();
         btnUsuarios = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
@@ -42,15 +44,17 @@ public class MostrarUsuarios extends javax.swing.JPanel {
         jLabel1.setText("Usuarios Registrados");
         pnlMostrarUsuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
 
-        atxtUsuarios.setColumns(20);
-        atxtUsuarios.setRows(5);
-        jScrollPane1.setViewportView(atxtUsuarios);
+        txtUsuarios.setColumns(20);
+        txtUsuarios.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        txtUsuarios.setRows(5);
+        jScrollPane1.setViewportView(txtUsuarios);
 
-        pnlMostrarUsuarios.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 530, 320));
+        pnlMostrarUsuarios.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 630, 320));
 
         btnUsuarios.setBackground(new java.awt.Color(255, 0, 0));
         btnUsuarios.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         btnUsuarios.setText("Mostrar usuarios");
+        btnUsuarios.addActionListener(this::btnUsuariosActionPerformed);
         pnlMostrarUsuarios.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 200, 60));
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -76,17 +80,34 @@ public class MostrarUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        txtUsuarios.setText("");
         ventana.layout.show(ventana.panelCards, "panelPrincipal");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+         ClienteDao dao = new ClienteDao();
+         List<Cliente> clientes = dao.mostrarClientes();
+         for (Cliente cliente  : clientes) {
+            String nombre = cliente.getNombre();
+            String apellido = cliente.getApellido();
+            String correo = cliente.getCorreoElectronico();
+            int cedula = cliente.getCedula();
+            
+            txtUsuarios.append("Nombre: "+nombre+" | Apellido: "+apellido+" | Correo: "+correo+" | Cédula: "+cedula+"\n");
+            
+            
+            
+        }
+             }//GEN-LAST:event_btnUsuariosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea atxtUsuarios;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JPanel pnlMostrarUsuarios;
+    private javax.swing.JTextArea txtUsuarios;
     // End of variables declaration//GEN-END:variables
 }
