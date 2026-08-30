@@ -30,6 +30,11 @@ public class Cliente {
     public String getCorreoElectronico() {
         return correoElectronico;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre: "+this.nombre+" | Apellido: "+this.apellido+" | Cedula: "+this.cedula+" | Correo: "+this.correoElectronico;
+    }
     
     
     

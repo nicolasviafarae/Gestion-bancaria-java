@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
  import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 public class CuentaDao {
     
     public void crearAhorros(Cuenta c2){
@@ -27,9 +28,9 @@ public class CuentaDao {
                 stmt1.setString(4, c2.getSucursal());
                 stmt1.executeUpdate();
                 c.commit();
-                System.out.println("Cuenta registrada");
+                    JOptionPane.showMessageDialog(null,"Cuenta registrada");
                 }else{
-                    System.out.println("No se encontro ningun usuario con esa cedula");
+                    JOptionPane.showMessageDialog(null,"No se encontro ningun usuario con esa cedula");
                 }
             } catch (Exception e) {
                 c.rollback();
@@ -60,9 +61,9 @@ public class CuentaDao {
                     stmt1.setString(4, c3.getSucursal());
                     stmt1.executeUpdate();
                     c.commit();
-                    System.out.println("Cuenta registrada");
+                    JOptionPane.showMessageDialog(null,"Cuenta registrada");
                 }else{
-                    System.out.println("No se encontro ningun usuario con esa cedula");
+                    JOptionPane.showMessageDialog(null,"No se encontro ningun usuario con esa cedula");
                 }
             } catch (Exception e) {
                 c.rollback();

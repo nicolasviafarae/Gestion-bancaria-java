@@ -22,8 +22,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
     PanelRegistrarCliente panelcliente = new PanelRegistrarCliente(this);
+    MostrarUsuarios panelMostrarUsuarios = new MostrarUsuarios(this);
+    CrearCuentaAhorros CuentaAhorros = new CrearCuentaAhorros(this);
+    CrearCuentaCorriente CuentaCorriente = new CrearCuentaCorriente(this);
         panelCards.add(pnlPrincipal,"panelPrincipal");
         panelCards.add(panelcliente,"PanelRegistrarCliente");
+        panelCards.add(panelMostrarUsuarios,"panelMostrarUsuarios");
+        panelCards.add(CuentaAhorros, "CuentaAhorros");
+        panelCards.add(CuentaCorriente,"CuentaCorriente");
         add(panelCards);
         panelCards.setBounds(0, 0, getWidth(), getHeight());
         layout.show(panelCards, "panelPrincipal");
@@ -39,25 +45,49 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlPrincipal = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         btncliente = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        btnMostrarUsuarios = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(242, 242, 242));
-        lblTitulo.setText("MI APLICACIÓN BANCARIA");
-        pnlPrincipal.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 720, 130));
-
-        btncliente.setBackground(new java.awt.Color(255, 51, 0));
+        btncliente.setBackground(new java.awt.Color(255, 0, 0));
         btncliente.setFont(new java.awt.Font("Cambria", 3, 18)); // NOI18N
         btncliente.setForeground(new java.awt.Color(255, 255, 255));
         btncliente.setText("Registrar usuario");
         btncliente.addActionListener(this::btnclienteActionPerformed);
         pnlPrincipal.add(btncliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 240, 60));
+
+        lblTitulo.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(242, 242, 242));
+        lblTitulo.setText("MI APLICACIÓN BANCARIA");
+        pnlPrincipal.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 720, 130));
+
+        btnMostrarUsuarios.setBackground(new java.awt.Color(255, 0, 0));
+        btnMostrarUsuarios.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        btnMostrarUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrarUsuarios.setText("Mostrar Usuarios");
+        btnMostrarUsuarios.addActionListener(this::btnMostrarUsuariosActionPerformed);
+        pnlPrincipal.add(btnMostrarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 240, 60));
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Crear cuenta de Ahorros");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        pnlPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, 240, 60));
+
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(242, 242, 242));
+        jButton2.setText("Crear cuenta Corriente");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+        pnlPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 340, 240, 60));
 
         lblFondo.setFont(new java.awt.Font("Broadway", 3, 14)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionbancaria/bancofuturo.jpg"))); // NOI18N
@@ -70,7 +100,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,6 +116,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
         layout.show(panelCards, "PanelRegistrarCliente");
     }//GEN-LAST:event_btnclienteActionPerformed
+
+    private void btnMostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosActionPerformed
+        layout.show(panelCards, "panelMostrarUsuarios");
+    }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        layout.show(panelCards, "CuentaAhorros");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        layout.show(panelCards, "CuentaCorriente");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,7 +155,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMostrarUsuarios;
     private javax.swing.JButton btncliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlPrincipal;

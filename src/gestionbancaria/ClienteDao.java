@@ -29,7 +29,7 @@ public class ClienteDao {
                 stmt.setString(4, c1.getCorreoElectronico());
                 stmt.executeUpdate();
                 c.commit();
-                System.out.println("Cliente registrado");    
+                JOptionPane.showMessageDialog(null, "Cliente registrado");
                 
                 }
             } catch (Exception e) {
@@ -53,17 +53,19 @@ public class ClienteDao {
         
     }
     
-    public void mostrarClientes(){
+    public String mostrarClientes(){
         String sql = "Select * from clientes";
+        String texto = "";
         try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
             
             try(PreparedStatement stmt = c.prepareStatement(sql);ResultSet r = stmt.executeQuery()){
                 while(r.next()){
-                    System.out.print(r.getString("nombre"));
-                    System.out.print(" | "+r.getString("apellido"));
-                    System.out.print(" | "+r.getString("correo"));
-                    System.out.print(" | "+r.getString("cedula"));
-                    System.out.println("");
+//                    System.out.print(r.getString("nombre"));
+//                    System.out.print(" | "+r.getString("apellido"));
+//                    System.out.print(" | "+r.getString("correo"));
+//                    System.out.print(" | "+r.getString("cedula"));
+//                    System.out.println("");
+                    
                 }
                 
                 
@@ -76,6 +78,7 @@ public class ClienteDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return "";
     }
     
     
