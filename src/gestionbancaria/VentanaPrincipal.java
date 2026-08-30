@@ -25,11 +25,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     MostrarUsuarios panelMostrarUsuarios = new MostrarUsuarios(this);
     CrearCuentaAhorros CuentaAhorros = new CrearCuentaAhorros(this);
     CrearCuentaCorriente CuentaCorriente = new CrearCuentaCorriente(this);
+    ConsultarCuenta ConsultarCuenta = new ConsultarCuenta(this);
+    Transferir Transferir = new Transferir(this);
         panelCards.add(pnlPrincipal,"panelPrincipal");
         panelCards.add(panelcliente,"PanelRegistrarCliente");
         panelCards.add(panelMostrarUsuarios,"panelMostrarUsuarios");
         panelCards.add(CuentaAhorros, "CuentaAhorros");
         panelCards.add(CuentaCorriente,"CuentaCorriente");
+        panelCards.add(ConsultarCuenta,"ConsultarCuenta");
+        panelCards.add(Transferir,"Transferir");
         add(panelCards);
         panelCards.setBounds(0, 0, getWidth(), getHeight());
         layout.show(panelCards, "panelPrincipal");
@@ -51,6 +55,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,7 +103,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(242, 242, 242));
         jButton3.setText("Consultar Cuenta");
-        pnlPrincipal.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 240, 60));
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+        pnlPrincipal.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 240, 60));
+
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(242, 242, 242));
+        jButton4.setText("Hacer un Deposito");
+        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+        pnlPrincipal.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 240, 60));
 
         lblFondo.setFont(new java.awt.Font("Broadway", 3, 14)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionbancaria/bancofuturo.jpg"))); // NOI18N
@@ -141,6 +156,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.show(panelCards, "CuentaCorriente");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        layout.show(panelCards, "ConsultarCuenta");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        layout.show(panelCards, "Transferir");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +195,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlPrincipal;

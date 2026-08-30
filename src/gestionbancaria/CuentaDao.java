@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
  import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 public class CuentaDao {
     
@@ -77,7 +79,8 @@ public class CuentaDao {
         }
     }
     
-    public void mostrarCuentas(int consultar){
+    public List<Cuenta> mostrarCuentas(int consultar){
+        ArrayList<Cuenta> cuentas = new ArrayList<>();
         String sql="select cliente_ID from clientes where cedula=?";
         String sql1 = "select * from cuentas where cliente_ID=?";
         try(Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/sistemaBancario", "root", "Maranatha2023")) {
@@ -92,11 +95,18 @@ public class CuentaDao {
                 stmt1.executeQuery();
                 ResultSet r2 = stmt1.executeQuery();
                 while(r2.next()){
-                    System.out.print(r2.getInt("cliente_ID"));
-                    System.out.print(" | "+r2.getString("tipo_Cuenta"));
-                    System.out.print(" | "+r2.getDouble("saldo"));
-                    System.out.print(" | "+r2.getString("sucursal"));
-                    System.out.println("");
+                    
+//                    System.out.print(r2.getInt("cliente_ID"));
+//                    System.out.print(" | "+r2.getString("tipo_Cuenta"));
+//                    System.out.print(" | "+r2.getDouble("saldo"));
+//                    System.out.print(" | "+r2.getString("sucursal"));
+//                    System.out.println("");
+                    int ID = r2.getInt("cliente_ID");
+                    String tipoCuenta= r2.getString("tipo_Cuenta");
+                    double saldo = r2.getDouble("saldo");
+                    String sucursal = r2.getString("Sucursal");
+                    Cuenta cuenta = new Cuenta(tipoCuenta,saldo,sucursal,ID);
+                    cuentas.add(cuenta);
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -107,5 +117,6 @@ public class CuentaDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return cuentas;
     }
 }

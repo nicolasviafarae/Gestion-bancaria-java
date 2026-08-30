@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class MovimientoDao {
     
-    public void depositar(int cuentaID,double monto){
+    public String depositar(int cuentaID,double monto){
         String sql = "select saldo from cuentas where cuenta_ID =?";
         String sql1="update cuentas set saldo=? where cuenta_ID=?";
         String sql2="insert into movimientos(cuenta_ID,tipo_movimiento,monto)values(?,?,?)";
@@ -31,7 +31,7 @@ public class MovimientoDao {
                 stmt2.setDouble(3, monto);
                 stmt2.executeUpdate();
                 c.commit();
-                System.out.println("Transferencia completada");
+                //System.out.println("Transferencia completada");
             } catch (Exception e) {
                 c.rollback();
                 System.out.println(e.getMessage());
@@ -43,7 +43,7 @@ public class MovimientoDao {
             System.out.println(e.getMessage());
         }
         
-        
+        return "Deposito realizado";
         
     }
     
