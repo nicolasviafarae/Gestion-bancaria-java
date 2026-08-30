@@ -47,7 +47,7 @@ public class MovimientoDao {
         
     }
     
-    public void retirar(int cuentaID2,double retiro){
+    public String retirar(int cuentaID2,double retiro){
         String sql = "Select saldo from cuentas where cuenta_ID=?";
         String sql1 = "update cuentas set saldo=? where cuenta_ID=?";
         String sql2= "insert into movimientos (cuenta_ID,tipo_movimiento,monto) values(?,?,?)";
@@ -79,10 +79,11 @@ public class MovimientoDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return "Retiro realizado";
         
     }
     
-    public void transferir(int cuentaID3,int cuentaID4 ,double transferir){
+    public String transferir(int cuentaID3,int cuentaID4 ,double transferir){
         String sql = "select saldo from cuentas where cuenta_ID=?";
         String sql1= "select saldo from cuentas where cuenta_ID=?";
         String sql2= "update cuentas set saldo=? where cuenta_ID=?";
@@ -146,6 +147,7 @@ public class MovimientoDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return "Transferencia realizada";
     }
     
     public void mostrarHistorial(int cuentaID5){

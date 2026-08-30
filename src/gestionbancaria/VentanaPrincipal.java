@@ -27,6 +27,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     CrearCuentaCorriente CuentaCorriente = new CrearCuentaCorriente(this);
     ConsultarCuenta ConsultarCuenta = new ConsultarCuenta(this);
     Transferir Transferir = new Transferir(this);
+    TransferirCuentas TransferirCuentas = new TransferirCuentas(this);
+    Retirar Retirar = new Retirar(this);
         panelCards.add(pnlPrincipal,"panelPrincipal");
         panelCards.add(panelcliente,"PanelRegistrarCliente");
         panelCards.add(panelMostrarUsuarios,"panelMostrarUsuarios");
@@ -34,6 +36,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelCards.add(CuentaCorriente,"CuentaCorriente");
         panelCards.add(ConsultarCuenta,"ConsultarCuenta");
         panelCards.add(Transferir,"Transferir");
+        panelCards.add(Retirar,"Retirar");
+        panelCards.add(TransferirCuentas,"TransferirCuentas");
         add(panelCards);
         panelCards.setBounds(0, 0, getWidth(), getHeight());
         layout.show(panelCards, "panelPrincipal");
@@ -56,6 +60,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,6 +121,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton4.addActionListener(this::jButton4ActionPerformed);
         pnlPrincipal.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 240, 60));
 
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(242, 242, 242));
+        jButton5.setText("Hacer un Retiro");
+        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        jButton5.addActionListener(this::jButton5ActionPerformed);
+        pnlPrincipal.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 240, 60));
+
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(242, 242, 242));
+        jButton6.setText("Transferir entre cuentas");
+        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        pnlPrincipal.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 240, 60));
+
         lblFondo.setFont(new java.awt.Font("Broadway", 3, 14)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionbancaria/bancofuturo.jpg"))); // NOI18N
         lblFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
@@ -164,6 +186,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.show(panelCards, "Transferir");
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        layout.show(panelCards, "Retirar");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        layout.show(panelCards, "TransferirCuentas");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -196,6 +226,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlPrincipal;
